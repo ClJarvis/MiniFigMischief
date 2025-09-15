@@ -153,3 +153,43 @@ document.addEventListener('touchmove', function () {
   }
 })
 
+/* Like Button */
+
+document.querySelectorAll(".post").forEach(post => {
+  const postId = post.dataset.postId;
+  const ratings = post.querySelectorAll(".post-rating");
+  const likeRating = ratings[0];
+
+  ratings.forEach(rating => {
+    const button = document.querySelector(".post-rating-button");
+    const count = document.querySelector(".post_rating_count");
+
+    console.log(button);
+    console.log(count);
+
+    button.addEventListener("click", async() => {
+      if (rating.classList.contains(".post_rating_selected")) {
+        return;
+      }
+
+      count.textContent = Number(count.textContent) + 1;
+
+      ratings.forEach(rating =>{
+        if (rating.classList.contains(".post_rating_selected")) {
+          const count = rating.querySelector(".post_rating_count");
+
+          count.textContent = Math.max(0, Number(count.textContent) -1);
+          rating.classList.remove(".post_rating_selected");
+        }
+      });
+
+
+      rating.classList.add("post_rating_selected");
+/* remove later, not needed but not committed yet
+      const likeOrDislike = likeRating === rating ? "like" :" dislike";
+      const reponse = await fetch(`/posts/${postId}/$likeOrDislike}`);
+      const body = await reponse.json();
+      */
+    })
+  });
+});

@@ -735,3 +735,46 @@ img.blue_tint {
 .intro {
   padding-bottom: 20px;
 }
+
+
+/* LIKE BUTTON */
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.post_rating_container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5px;
+  padding-top: 15px;
+}
+
+.post_rating {
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+
+.post_rating:not(:last-child) {
+  margin-right: 12px;
+  }
+
+  .post_rating_selected > .post-rating-button,
+  .post_rating_selected > .post_rating_count
+   {
+    color: var(--accentgreen);
+  }
+  .post_rating_button {
+    margin-right: 6px;
+    cursor: pointer;
+    color: var(--accentgreen);
+  }
+  .post_rating:not(.post_rating_selected) > .post-rating-button:hover{
+    color: #000000;
+  }
